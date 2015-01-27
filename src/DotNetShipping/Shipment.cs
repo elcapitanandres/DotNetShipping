@@ -16,7 +16,7 @@ namespace DotNetShipping
 		public ReadOnlyCollection<Package> Packages;
 		public ICollection<IRateAdjuster> RateAdjusters;
 		private readonly List<Rate> _rates;
-	    private readonly List<USPSError> _serverErrors; 
+        private readonly List<ShippingResponseError> _serverErrors; 
 
 		#endregion
 
@@ -28,7 +28,7 @@ namespace DotNetShipping
 			DestinationAddress = destinationAddress;
 			Packages = packages.AsReadOnly();
 			_rates = new List<Rate>();
-            _serverErrors = new List<USPSError>();
+            _serverErrors = new List<ShippingResponseError>();
 		}
 
 		#endregion
@@ -50,7 +50,7 @@ namespace DotNetShipping
 			get { return Packages.Sum(x => x.Weight); }
 		}
 
-        public List<USPSError> ServerErrors
+        public List<ShippingResponseError> ServerErrors
 	    {
             get { return _serverErrors; }
 	    } 

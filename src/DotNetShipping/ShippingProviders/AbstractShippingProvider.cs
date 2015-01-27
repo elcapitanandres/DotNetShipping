@@ -36,7 +36,7 @@ namespace DotNetShipping.ShippingProviders
 			Shipment.Rates.Add(rate);
 		}
 
-	    protected void AddError(USPSError error)
+        protected void AddError(ShippingResponseError error)
 	    {
 	        Shipment.ServerErrors.Add(error);
 	    }

@@ -178,13 +178,10 @@ namespace DotNetShipping.ShippingProviders
             if (document.Descendants("Error").Any())
 		    {
 		        var errors = from item in document.Descendants("Error")
-		            select new USPSError()
+		            select new ShippingResponseError()
 		            {
                         Description = item.Element("Description").ToString(),
-                        Source = item.Element("Source").ToString(),
-                        HelpContext = item.Element("HelpContext").ToString(),
-                        HelpFile = item.Element("HelpFile").ToString(),
-                        Number = item.Element("Number").ToString()
+                        Code = item.Element("Number").ToString()
 		            };
 
 		        foreach (var err in errors)
